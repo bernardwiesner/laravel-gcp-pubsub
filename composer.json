@@ -16,6 +16,11 @@
       "BernardWiesner\\PubSub\\": "src/"
     }
   },
+  "autoload-dev": {
+    "psr-4": {
+      "BernardWiesner\\PubSub\\Tests\\": "tests/"
+    }
+  },
   "extra": {
     "laravel": {
       "providers": [

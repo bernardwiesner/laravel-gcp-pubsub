@@ -5,6 +5,7 @@ namespace BernardWiesner\PubSub;
 use Google\Cloud\PubSub\Message;
 use Google\Cloud\PubSub\PubSubClient as GooglePubSubClient;
 use Google\Cloud\PubSub\Subscription;
+use Illuminate\Support\Facades\Config;
 
 class PubSubClient implements PubSubInterface
 {
@@ -13,13 +14,15 @@ class PubSubClient implements PubSubInterface
 
     private GooglePubSubClient $client;
 
-    private int $retryTimes = 2;
+    private int $retryTimes;
 
-    private int $retryWaitMilliseconds = 100;
+    private int $retryWaitMilliseconds;
 
     public function __construct(GooglePubSubClient $client)
     {
         $this->client = $client;
+        $this->retryTimes = Config::get('gcp-pubsub.retry', 2);
+        $this->retryWaitMilliseconds = Config::get('gcp-pubsub.retry_wait', 100);
     }
 
     public function topic(string $name): Builder
