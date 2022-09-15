@@ -8,6 +8,8 @@ The recommended way to use this package is setting up a PubSub API with laravel 
 
 The advantage of using this package over [laravel queue](https://laravel.com/docs/9.x/queues), is you can easily scale your APIs by simply adding more servers or containers. Another big advantage is it decouples your jobs from your code, there is no need to define your jobs in the same repo as from where they are dispatched/published, allowing for a firendlier microservice architecture. You could even process the jobs in another language other than PHP/laravel in one of your microservices.
 
+For more details on how to setup a PubSub API with laravel refer to [this guide](https://dev.to/bernardwiesner/laravel-microservice-using-gcp-pubsub-an-alternative-to-laravel-queue-2inc).
+
 ### Installation
 
 ```sh
